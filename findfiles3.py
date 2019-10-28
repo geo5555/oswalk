@@ -6,7 +6,7 @@ totalsize=0
 
 for file1 in glob.glob('e:\mp3/**/*.mp3', recursive=True):
     print(file1)
-    print(type(file1))
+    #print(type(file1)) this is type string, I cannot call lstat on it.
     #totalsize = totalsize + int(Path.lstat(file1).st_size)
     count +=1
 

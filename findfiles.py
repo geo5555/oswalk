@@ -14,14 +14,6 @@ for path, dirs, files in os.walk(sys.argv[1]):
             print(filename)
             totalsize = totalsize + os.path.getsize(os.path.join(path, name))
             count +=1
-        #print(os.path.join(path, name))
-        #readTitle(os.path.join(path, name))
-    # print("----------------------")
-    # print("directories")
-    # for name in dirs:
-    #     print(os.path.join(path, name))
-    #     #pass
-    # print("----------------------")
 
 print(f"totalsize in bytes: {totalsize}")
 print(f"totalsize in Mbytes: {totalsize/1024/1024}")
