@@ -36,7 +36,7 @@ else:
     pattern = args.pattern
 
 for file in Path(args.directory).glob(extension):
-    filename = str(file)
+    filename = file.name
     if re.search(pattern, filename, flags=re.I):
         count_will_be_affected+=1
         if args.action=="rename":
