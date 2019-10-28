@@ -5,10 +5,10 @@ import re
 count=0
 totalsize=0
 
-for file in Path('e:\mp3').glob('**/*.mp3'):
+for file in Path('D:\downloads\music').glob('**/*.mp3'):
     filename = str(file)
     if (re.search(r'\[mp3clan\.com\]', filename)):
-        result = re.sub(r'\s+\[mp3clan\.com\]', '', filename)
+        result = re.sub(r'\[mp3clan\.com\]', '', filename)
         try:
             file.rename(result)
             print(f"{filename} renamed to {result}")
