@@ -3,6 +3,9 @@ from pathlib import Path
 import re
 import argparse
 
+#file.rename without full path in rename moves the file to the directory
+#where you execute the command
+
 count_affected=0
 count_will_be_affected=0
 
@@ -43,13 +46,13 @@ for file in Path(args.directory).glob(extension):
             result = re.sub(pattern, args.replace_pattern, filename, flags=re.I)
             if not args.dryrun:
                 try:
-                    file.rename(result)
-                    print(f"{filename} renamed to {result}")
+                    file.rename(file.parent.joinpath(result))
+                    print(f"{filename} => {result}")
                     count_affected+=1
                 except FileExistsError:
                     print(result+" already exists")
             else:
-                print(f"{filename} renamed to {result}")
+                print(f"{filename} | will be renamed to | {result}")
         elif args.action=="delete":
             if not args.dryrun:
                 try:
