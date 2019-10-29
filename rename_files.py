@@ -46,7 +46,8 @@ for file in Path(args.directory).glob(extension):
             result = re.sub(pattern, args.replace_pattern, filename, flags=re.I)
             if not args.dryrun:
                 try:
-                    file.rename(file.parent.joinpath(result))
+                    file.rename(file.parent.joinpath(result)) 
+                    #without joinpath moves the file to another dir
                     print(f"{filename} => {result}")
                     count_affected+=1
                 except FileExistsError:
